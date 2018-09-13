@@ -17,7 +17,7 @@ GetOptions(
 
 my $csv = Text::CSV_XS->new({ binary => 1 });
 
-open(my $fh ,q{<}, $filepath) 
+open(my $fh, q{<}, $filepath) 
 	or die qq{Can't open $filepath};
 
 my @headers = $csv->column_names($csv->getline($fh));
