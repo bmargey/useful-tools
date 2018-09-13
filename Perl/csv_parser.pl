@@ -20,7 +20,7 @@ my $csv = Text::CSV_XS->new({ binary => 1 });
 open(my $fh ,q{<}, $filepath) 
 	or die qq{Can't open $filepath};
 
-my @headers = $csv->getline($fh);
+my @headers = $csv->column_names($csv->getline($fh));
 
 while (my $row = $csv->getline_hr($fh)) {
 	say $row->{$_} foreach @headers;
